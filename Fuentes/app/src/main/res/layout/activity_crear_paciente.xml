@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <include layout="@layout/toolbar"></include>
+
+    <ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+            <TextView
+                android:background="@color/primary_light"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/rut_paciente"
+                android:layout_gravity="center"
+                android:gravity="center">
+
+            </TextView>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/rutPaciente">
+            </EditText>
+            <TextView
+                android:layout_marginTop="@dimen/margin_top_lista"
+                android:background="@color/primary_light"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/nombre_paciente"
+                android:layout_gravity="center"
+                android:gravity="center">
+            </TextView>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/nombrePaciente">
+            </EditText>
+            <TextView
+                android:layout_marginTop="@dimen/margin_top_lista"
+                android:background="@color/primary_light"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/apellido_paciente"
+                android:layout_gravity="center"
+                android:gravity="center">
+            </TextView>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/apellidoPaciente">
+            </EditText>
+            <TextView
+                android:layout_marginTop="@dimen/margin_top_lista"
+                android:background="@color/primary_light"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/fecha_examen_paciente"
+                android:layout_gravity="center"
+                android:gravity="center">
+            </TextView>
+            <TextView
+                android:id="@+id/etFecha"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="false"
+                android:hint="@string/fechaEjemplo"
+                android:inputType="date"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:maxLines="1">
+            </TextView>
+            <TextView
+                android:layout_marginTop="@dimen/margin_top_lista"
+                android:background="@color/primary_light"
+                android:text="@string/area_de_trabajo"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </TextView>
+            <Spinner
+                android:id="@+id/spinner_area_trabajo"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </Spinner>
+            <LinearLayout
+                android:layout_marginTop="@dimen/margin_top_lista"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                        <TextView
+                            android:background="@color/primary_light"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/Presenta_sintomas">
+                        </TextView>
+                        <Switch
+                            android:layout_marginLeft="@dimen/margin_left_switch"
+                            android:id="@+id/switch_sintomas"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                        </Switch>
+
+            </LinearLayout>
+            <TextView
+                android:layout_marginTop="@dimen/margin_top_lista"
+                android:background="@color/primary_light"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/temperatura"
+                android:gravity="center"
+                android:textColor="@color/primary_text"
+                android:textSize="15sp">
+            </TextView>
+
+            <EditText
+                android:id="@+id/temperatura"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number">
+
+            </EditText>
+
+            <LinearLayout
+                android:layout_marginTop="@dimen/margin_top_lista"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+
+                    android:background="@color/primary_light"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Presenta_tos">
+                </TextView>
+                <Switch
+                    android:layout_marginLeft="@dimen/margin_double_left_switch"
+                    android:id="@+id/switch_tos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                </Switch>
+
+            </LinearLayout>
+            <TextView
+                android:layout_marginTop="@dimen/margin_top_lista"
+                android:background="@color/primary_light"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/presion"
+                android:gravity="center"
+                android:textColor="@color/primary_text"
+                android:textSize="15sp">
+            </TextView>
+
+            <EditText
+
+                android:id="@+id/presion_arterial"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number">
+
+            </EditText>
+            <Button
+                android:layout_marginTop="@dimen/margin_top_lista"
+                android:id="@+id/btn_prod_acv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@color/accent"
+                android:text="@string/agregar_btn">
+            </Button>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

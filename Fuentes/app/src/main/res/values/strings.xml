@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">ExamenCovid</string>
+    <string name="Titulo_App">Examenes Covid</string>
+    <string name="rut">Rut :</string>
+    <string name="nombre">Nombre :</string>
+    <string name="apellido">Apellido :</string>
+    <string name="fecha_examen">Fecha del Examen</string>
+    <string name="rut_paciente">Rut del Paciente</string>
+    <string name="nombre_paciente">Nombre del Paciente</string>
+    <string name="apellido_paciente">Apellido del Paciente</string>
+    <string name="fecha_examen_paciente">Fecha del Examen</string>
+    <string name="fechaEjemplo">dd/MM/yyyy</string>
+    <string name="area_de_trabajo">Area de Trabajo</string>
+    <string name="Presenta_sintomas">Presenta sintomas de Covid?</string>
+    <string name="Presenta_tos">Presenta Tos?</string>
+    <string name="presion">Presion Arterial</string>
+    <string name="temperatura">Temperatura</string>
+    <string name="agregar_btn">AGREGAR</string>
 </resources>

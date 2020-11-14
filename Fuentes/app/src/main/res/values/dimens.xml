@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="imagen_toolbar">100dp</dimen>
+    <dimen name="tamanio_titulo">30sp</dimen>
+    <dimen name="margin_left_titulo">30dp</dimen>
+    <dimen name="margin_left_switch">100dp</dimen>
+    <dimen name="margin_double_left_switch">195dp</dimen>
+
+    <dimen name="margin_right_switch">30dp</dimen>
+    <dimen name="margin_top_lista">6dp</dimen>
+
+</resources>
