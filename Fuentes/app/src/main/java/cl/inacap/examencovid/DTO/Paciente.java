@@ -7,7 +7,7 @@ public class Paciente  implements Serializable {
 
     private String rut;
     private String nombre;
-    private String apelido;
+    private String apellido;
     private Date fecha;
     private String area_Trabajo;
     private boolean sintoma;
@@ -31,12 +31,12 @@ public class Paciente  implements Serializable {
         this.nombre = nombre;
     }
 
-    public String getApelido() {
-        return apelido;
+    public String getApellido() {
+        return apellido;
     }
 
-    public void setApelido(String apelido) {
-        this.apelido = apelido;
+    public void setApellido(String apelido) {
+        this.apellido = apelido;
     }
 
     public Date getFecha() {
