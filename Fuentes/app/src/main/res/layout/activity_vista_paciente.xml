@@ -3,7 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".VistaPacienteActivity">
+    <include layout="@layout/toolbar"></include>
 
 <LinearLayout
     android:padding="5dp"
