@@ -13,29 +13,19 @@ public class PacientesDAOLista implements PacientesDAO {
 
     private PacientesDAOLista(){
         Paciente p=new Paciente();
+        p.setId(0);
         p.setRut("19655234-0");
         p.setNombre("Luis");
         p.setApellido("Rodriguez");
-        p.setFecha(null);
-        p.setArea_Trabajo("Construccion");
+        p.setFecha("15-11-2020");
+        p.setArea_Trabajo("Otros");
         p.setSintoma(true);
         p.setTemperatura(42);
         p.setTos(false);
         p.setArterial(70);
         pacientes.add(p);
-        p=new Paciente();
-        p.setRut("18209446-3");
-        p.setNombre("Karen");
-        p.setApellido("briceño");
-        p.setFecha(null);
-        p.setArea_Trabajo("Vendedora");
-        p.setSintoma(true);
-        p.setTemperatura(42);
-        p.setTos(false);
-        p.setArterial(70);
-        pacientes.add(p);
-
     }
+
     public static PacientesDAOLista getInstance(){
         if(instancia==null){
             instancia=new PacientesDAOLista();

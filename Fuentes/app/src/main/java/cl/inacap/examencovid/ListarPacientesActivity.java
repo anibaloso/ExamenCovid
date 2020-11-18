@@ -37,9 +37,9 @@ public class ListarPacientesActivity extends AppCompatActivity {
         this.pacientesLV.setAdapter(this.adapter);
         this.pacientesLV.setOnItemClickListener((adapterView, view, i, l) -> {
             Paciente paciente = pacientes.get(i);
-            Toast.makeText(getApplicationContext(),paciente.getNombre() ,Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getApplicationContext(),paciente.getNombre() ,Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(ListarPacientesActivity.this,VistaPacienteActivity.class);
-            //intent.putExtra("producto",producto);
+            intent.putExtra("paciente",paciente);
             startActivity(intent);
         });
 

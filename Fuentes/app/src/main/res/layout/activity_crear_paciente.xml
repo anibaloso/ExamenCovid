@@ -80,8 +80,7 @@
                 android:hint="@string/fechaEjemplo"
                 android:inputType="date"
                 android:gravity="center"
-                android:layout_gravity="center"
-                android:maxLines="1">
+                android:layout_gravity="center">
             </TextView>
             <TextView
                 android:layout_marginTop="@dimen/margin_top_lista"
@@ -96,7 +95,8 @@
                 android:id="@+id/spinner_area_trabajo"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:entries="@array/areas">
             </Spinner>
             <LinearLayout
                 android:layout_marginTop="@dimen/margin_top_lista"
@@ -177,7 +177,7 @@
             </EditText>
             <Button
                 android:layout_marginTop="@dimen/margin_top_lista"
-                android:id="@+id/btn_prod_acv"
+                android:id="@+id/btn_agregar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

@@ -4,7 +4,7 @@
     <string name="rut">Rut :</string>
     <string name="nombre">Nombre :</string>
     <string name="apellido">Apellido :</string>
-    <string name="fecha_examen">Fecha del Examen</string>
+    <string name="fecha_examen">Fecha del Examen :</string>
     <string name="rut_paciente">Rut del Paciente</string>
     <string name="nombre_paciente">Nombre del Paciente</string>
     <string name="apellido_paciente">Apellido del Paciente</string>

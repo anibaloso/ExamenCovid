@@ -41,7 +41,7 @@ public class PacientesListAdapter extends ArrayAdapter<Paciente> {
         txtRut.setText(actual.getRut());
         txtNombre.setText(actual.getNombre());
         txtApellido.setText(actual.getApellido());
-        txtFecha.setText(null);
+        txtFecha.setText(actual.getFecha());
         return fila;
     }
 }

@@ -1,19 +1,27 @@
 package cl.inacap.examencovid.DTO;
 
 import java.io.Serializable;
-import java.util.Date;
 
 public class Paciente  implements Serializable {
 
+    private int id;
     private String rut;
     private String nombre;
     private String apellido;
-    private Date fecha;
+    private String fecha;
     private String area_Trabajo;
     private boolean sintoma;
     private double temperatura;
     private boolean tos;
     private int arterial;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getRut() {
         return rut;
@@ -39,11 +47,11 @@ public class Paciente  implements Serializable {
         this.apellido = apelido;
     }
 
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 
