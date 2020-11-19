@@ -21,8 +21,10 @@ public class PacientesDAODB implements PacientesDAO{
     @Override
     public Paciente add(Paciente p) {
         SQLiteDatabase writer = this.db.getWritableDatabase();
-        String sql = String.format("INSERT INTO paciente(" + "rut,nombre,apellido, fechaExamen, areaTrabajo, covid, temperatura, tos, presion) " +
-                "VALUES('%s','%s','%s','%s','%s', %b, %d, %b, %d)", p.getRut(), p.getNombre(), p.getApellido(), p.getFecha(), p.getArea_Trabajo(), p.isSintoma(), p.getTemperatura(), p.isTos(), p.getArterial());
+        String sql = String.format("INSERT INTO paciente(" + "rut,nombre,apellido, fechaExamen, areaTrabajo, covid, temperatura, " +
+                "tos, presion) " +
+                "VALUES('%s','%s','%s','%s','%s', %b, %d, %b, %d)", p.getRut(), p.getNombre(), p.getApellido(), p.getFecha(),
+                p.getArea_Trabajo(), p.isSintoma(), p.getTemperatura(), p.isTos(), p.getArterial());
         writer.execSQL(sql);
         writer.close();
         return p;
@@ -30,8 +32,9 @@ public class PacientesDAODB implements PacientesDAO{
 
     @Override
     public List<Paciente> getAll() {
-        SQLiteDatabase reader = this.db.getReadableDatabase();
+
         List<Paciente> pacientes = new ArrayList<>();
+        SQLiteDatabase reader = this.db.getReadableDatabase();
         try {
             if (reader != null) {
                 Cursor c = reader.rawQuery("SELECT * " +

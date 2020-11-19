@@ -29,21 +29,26 @@ public class MainActivity extends AppCompatActivity {
             String comparacion = null;
             if(rutTxt.getText().toString().isEmpty()){
                 errores = errores + ("Debe ingresar nombre de usuario\n" );
-                rutTxt.setBackgroundColor(Color.RED);
+                rutTxt.setBackground(getDrawable(R.drawable.borde_text));
+
             }else{
                 rutTxt.setBackgroundColor(Color.WHITE);
                 char extracto = rutTxt.getText().toString().charAt(rutTxt.getText().toString().length() - 2);
                 if(rutTxt.getText().toString().length() == 9 || rutTxt.getText().toString().length() == 10 && extracto == '-'){
                     comparacion = rutTxt.getText().toString().substring(rutTxt.getText().toString().length() - 6, rutTxt.getText().toString().length() - 2);
+
                 }else{
                     errores= errores + ("Nombre de usuario invalido\n");
+                    rutTxt.setBackground(getDrawable(R.drawable.borde_text));
                 }
             }
             int clave = 0;
             String clavePonderar = claveTxt.getText().toString().trim();
             if (clavePonderar.isEmpty()) {
                 errores= errores + ("Debe ingresar su clave\n");
-                claveTxt.setBackgroundColor(Color.RED);
+                claveTxt.setBackground(getDrawable(R.drawable.borde_text));
+
+
             }else {
                 try {
                     clave = Integer.parseInt(clavePonderar);
@@ -51,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
                         claveTxt.setBackgroundColor(Color.WHITE);
                     }else{
                         errores= errores + ("clave incorrecta\n");
-                    }
+                        claveTxt.setBackground(getDrawable(R.drawable.borde_text));                    }
                 } catch (Exception ex) {
                     errores= errores + ("Clave solo debe ser numeros\n");
                 }

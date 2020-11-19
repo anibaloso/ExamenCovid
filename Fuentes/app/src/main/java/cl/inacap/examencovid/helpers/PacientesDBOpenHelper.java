@@ -25,7 +25,7 @@ public class PacientesDBOpenHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL(this.sqlCreate);
+        sqLiteDatabase.execSQL(sqlCreate);
         sqLiteDatabase.execSQL("INSERT INTO paciente(rut,nombre,apellido, fechaExamen, areaTrabajo, covid, temperatura, tos, presion)"+
                 "VALUES ('19655234-0'"+
                 ",'Luis'" +
