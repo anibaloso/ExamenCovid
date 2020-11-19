@@ -9,7 +9,7 @@
     <string name="nombre_paciente">Nombre del Paciente</string>
     <string name="apellido_paciente">Apellido del Paciente</string>
     <string name="fecha_examen_paciente">Fecha del Examen</string>
-    <string name="fechaEjemplo">dd/MM/yyyy</string>
+    <string name="fechaEjemplo">1/1/2000</string>
     <string name="area_de_trabajo">Area de Trabajo</string>
     <string name="Presenta_sintomas">Presenta sintomas de Covid?</string>
     <string name="Presenta_tos">Presenta Tos?</string>

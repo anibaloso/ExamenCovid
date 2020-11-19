@@ -8,6 +8,8 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.squareup.picasso.Picasso;
 
+import java.text.DecimalFormat;
+
 import cl.inacap.examencovid.DTO.Paciente;
 
 public class VistaPacienteActivity extends AppCompatActivity{
@@ -50,11 +52,12 @@ public class VistaPacienteActivity extends AppCompatActivity{
             this.fecha.setText(paciente.getFecha());
             this.area_Trabajo.setText(paciente.getArea_Trabajo());
             if(paciente.isSintoma()){
-                this.sintoma.setText("Tiene Corana Virus");
+                this.sintoma.setText("Tiene Corona Virus");
             }else{
-                this.sintoma.setText("No tiene Corana Virus");
+                this.sintoma.setText("No tiene Corona Virus");
             }
-            this.temperatura.setText(String.valueOf(paciente.getTemperatura()));
+            DecimalFormat df = new DecimalFormat("#.0");
+            this.temperatura.setText(df.format(paciente.getTemperatura()));
             if(paciente.isTos()){
                 this.tos.setText("Tiene Tos");
             }else{

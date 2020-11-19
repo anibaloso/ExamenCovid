@@ -16,6 +16,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.List;
 
 import cl.inacap.examencovid.DAO.PacientesDAO;
+import cl.inacap.examencovid.DAO.PacientesDAODB;
 import cl.inacap.examencovid.DAO.PacientesDAOLista;
 import cl.inacap.examencovid.DTO.Paciente;
 import cl.inacap.examencovid.adapters.PacientesListAdapter;
@@ -23,7 +24,7 @@ import cl.inacap.examencovid.adapters.PacientesListAdapter;
 public class ListarPacientesActivity extends AppCompatActivity {
 
     private List<Paciente> pacientes;
-    private PacientesDAO pacientesDAO = PacientesDAOLista.getInstance();
+    private PacientesDAO pacientesDAO = new PacientesDAODB(this);
     private ListView pacientesLV;
     private PacientesListAdapter adapter;
     private FloatingActionButton btnAgregar;
@@ -37,7 +38,6 @@ public class ListarPacientesActivity extends AppCompatActivity {
         this.pacientesLV.setAdapter(this.adapter);
         this.pacientesLV.setOnItemClickListener((adapterView, view, i, l) -> {
             Paciente paciente = pacientes.get(i);
-            //Toast.makeText(getApplicationContext(),paciente.getNombre() ,Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(ListarPacientesActivity.this,VistaPacienteActivity.class);
             intent.putExtra("paciente",paciente);
             startActivity(intent);

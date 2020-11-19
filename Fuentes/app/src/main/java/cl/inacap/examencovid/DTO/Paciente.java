@@ -94,4 +94,5 @@ public class Paciente  implements Serializable {
     public void setArterial(int arterial) {
         this.arterial = arterial;
     }
+
 }

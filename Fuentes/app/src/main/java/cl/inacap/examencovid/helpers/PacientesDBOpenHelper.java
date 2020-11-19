@@ -14,9 +14,9 @@ public class PacientesDBOpenHelper extends SQLiteOpenHelper {
             "apellido TEXT,"+
             "fechaExamen TEXT,"+
             "areaTrabajo TEXT,"+
-            "covid BOOLEAN,"+
-            "temperatura FLOAT,"+
-            "tos BOOLEAN,"+
+            "covid TEXT,"+
+            "temperatura REAL,"+
+            "tos TEXT,"+
             "presion INTEGER)";
 
     public PacientesDBOpenHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
@@ -30,11 +30,11 @@ public class PacientesDBOpenHelper extends SQLiteOpenHelper {
                 "VALUES ('19655234-0'"+
                 ",'Luis'" +
                 ",'Rodriguez'" +
-                ",'15/11/2020'" +
+                ",'15-11-2020'" +
                 ",'Otros'" +
-                ", false" +
+                ",'false'" +
                 ", 36.5" +
-                ", false"+
+                ",'false'"+
                 ",110)");
     }
 

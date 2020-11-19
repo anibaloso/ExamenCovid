@@ -15,16 +15,15 @@ public class PacientesDAODB implements PacientesDAO{
     private PacientesDBOpenHelper db;
 
     public PacientesDAODB(Context contexto) {
-        this.db = new PacientesDBOpenHelper(contexto, "DBPacientes", null, 1);
+        this.db = new PacientesDBOpenHelper(contexto, "paciente", null, 1);
     }
 
     @Override
     public Paciente add(Paciente p) {
         SQLiteDatabase writer = this.db.getWritableDatabase();
-        String sql = String.format("INSERT INTO paciente(" + "rut,nombre,apellido, fechaExamen, areaTrabajo, covid, temperatura, " +
+        String sql = String.format("INSERT INTO paciente(rut,nombre,apellido, fechaExamen, areaTrabajo, covid, temperatura, " +
                 "tos, presion) " +
-                "VALUES('%s','%s','%s','%s','%s', %b, %d, %b, %d)", p.getRut(), p.getNombre(), p.getApellido(), p.getFecha(),
-                p.getArea_Trabajo(), p.isSintoma(), p.getTemperatura(), p.isTos(), p.getArterial());
+                "VALUES('"+p.getRut()+"','"+p.getNombre()+"','"+p.getApellido()+"','"+p.getFecha()+"','"+p.getArea_Trabajo()+"','"+p.isSintoma()+"',"+p.getTemperatura()+",'"+p.isTos()+"',"+p.getArterial()+")");
         writer.execSQL(sql);
         writer.close();
         return p;
@@ -32,7 +31,6 @@ public class PacientesDAODB implements PacientesDAO{
 
     @Override
     public List<Paciente> getAll() {
-
         List<Paciente> pacientes = new ArrayList<>();
         SQLiteDatabase reader = this.db.getReadableDatabase();
         try {
@@ -57,7 +55,6 @@ public class PacientesDAODB implements PacientesDAO{
                 }
                 reader.close();
             }
-
         } catch (Exception ex) {
             pacientes = null;
         }

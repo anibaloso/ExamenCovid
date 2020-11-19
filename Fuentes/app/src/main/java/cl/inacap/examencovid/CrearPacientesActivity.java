@@ -22,9 +22,11 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -36,6 +38,7 @@ import cl.inacap.examencovid.adapters.PacientesListAdapter;
 public class CrearPacientesActivity extends AppCompatActivity{
 
     private int mYearIni, mMonthIni, mDayIni, sYearIni, sMonthIni, sDayIni;
+    java.util.Date fechaActual = new Date();
     static final int DATE_ID = 0;
     Calendar C = Calendar.getInstance();
     Toolbar toolbar;
@@ -45,8 +48,6 @@ public class CrearPacientesActivity extends AppCompatActivity{
     private Paciente paciente;
     private Button btnGuardar;
     private PacientesDAO pacientesDAO = new PacientesDAODB(this);
-    String[] areas;
-
 
     @Override
     public boolean onSupportNavigateUp(){
@@ -67,12 +68,7 @@ public class CrearPacientesActivity extends AppCompatActivity{
         this.nombre = findViewById(R.id.nombrePaciente);
         this.apellido = findViewById(R.id.apellidoPaciente);
         this.fecha = findViewById(R.id.etFecha);
-        fecha.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showDialog(DATE_ID);
-            }
-        });
+        fecha.setOnClickListener(view -> showDialog(DATE_ID));
 
         this.area_Trabajo = findViewById(R.id.spinner_area_trabajo);
         this.sintoma = findViewById(R.id.switch_sintomas);
@@ -87,7 +83,8 @@ public class CrearPacientesActivity extends AppCompatActivity{
                 errores.add("Rut no debe estar vacio");
             }else {
                 char extracto = rut.getText().toString().charAt(rut.getText().toString().length() - 2);
-                if(rut.getText().toString().length() != 9 || rut.getText().toString().length() != 10 && extracto != '-'){
+                if(rut.getText().toString().length() == 9 || rut.getText().toString().length() == 10 && extracto == '-'){
+                }else{
                     errores.add("Ingrese un rut valido");
                 }
             }
@@ -99,10 +96,20 @@ public class CrearPacientesActivity extends AppCompatActivity{
             }
             if(temperatura.getText().toString().isEmpty()){
                 errores.add("Temperatura no debe estar vacio");
+            }else{
+                if(Double.parseDouble(temperatura.getText().toString()) < 20.0 ){
+                    errores.add("Temperatura no puede ser menor a 20°, no sea longi ya esta muerto");
+                }
             }
             if(arterial.getText().toString().isEmpty()) {
                 errores.add("Presion alterial no debe estar vacio");
             }
+
+            Date fechaCompara = StringAfecha(fecha.getText().toString());
+            if(fechaCompara.before(fechaActual) && !fechaCompara.equals(fechaActual) ){
+                errores.add("Fecha debe ser igual o mayor a Hoy");
+            }
+
             if(errores.isEmpty()){
                 Paciente p = new Paciente();
                 p.setRut(rut.getText().toString());
@@ -110,14 +117,9 @@ public class CrearPacientesActivity extends AppCompatActivity{
                 p.setApellido(apellido.getText().toString());
                 p.setFecha(fecha.getText().toString());
                 p.setArea_Trabajo(area_Trabajo.getSelectedItem().toString());
-                if(sintoma.isChecked()){
-                    Toast.makeText(CrearPacientesActivity.this, "Encendido", Toast.LENGTH_SHORT).show();
-                }else{
-                    Toast.makeText(CrearPacientesActivity.this, "apagado", Toast.LENGTH_SHORT).show();
-                }
                 p.setSintoma(sintoma.isChecked());
                 p.setTemperatura(Double.parseDouble(temperatura.getText().toString()));
-                p.setTos(tos.isActivated());
+                p.setTos(tos.isChecked());
                 p.setArterial(Integer.parseInt(arterial.getText().toString()));
                 pacientesDAO.add(p);
                 Toast.makeText(CrearPacientesActivity.this, "Se ha creado correctamente", Toast.LENGTH_SHORT).show();
@@ -140,10 +142,8 @@ public class CrearPacientesActivity extends AppCompatActivity{
                 .show();
     }
 
-
-
     private void colocar_fecha() {
-        fecha.setText((mMonthIni + 1) + "-" + mDayIni + "-" + mYearIni+" ");
+        fecha.setText( mDayIni+ "/" + (mMonthIni + 1) + "/" + mYearIni+" ");
     }
 
     private DatePickerDialog.OnDateSetListener mDateSetListener =
@@ -156,13 +156,29 @@ public class CrearPacientesActivity extends AppCompatActivity{
                 }
             };
 
-    @Override
+   @Override
     protected Dialog onCreateDialog(int id) {
         switch (id) {
             case DATE_ID:
                 return new DatePickerDialog(this, mDateSetListener, sYearIni, sMonthIni, sDayIni);
         }
         return null;
+    }
+
+
+    // TODO metodo para convertir las fechas de String a Date
+    public static Date StringAfecha(String fecha)
+    {
+        SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+        Date fechaDate = null;
+        try {
+            fechaDate = formato.parse(fecha);
+        }
+        catch (ParseException ex)
+        {
+            System.out.println(ex);
+        }
+        return fechaDate;
     }
 
 }

@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -37,11 +38,15 @@ public class PacientesListAdapter extends ArrayAdapter<Paciente> {
         TextView txtNombre=fila.findViewById(R.id.txtNombre);
         TextView txtApellido=fila.findViewById(R.id.txtApellido);
         TextView txtFecha=fila.findViewById(R.id.txtFecha);
+        ImageView imagen = fila.findViewById(R.id.IMGaviso);
         Paciente actual=pacientes.get(position);
         txtRut.setText(actual.getRut());
         txtNombre.setText(actual.getNombre());
         txtApellido.setText(actual.getApellido());
         txtFecha.setText(actual.getFecha());
+        if (actual.isSintoma()){
+            imagen.setImageResource(R.drawable.ic_baseline_warning_24);
+        }
         return fila;
     }
 }

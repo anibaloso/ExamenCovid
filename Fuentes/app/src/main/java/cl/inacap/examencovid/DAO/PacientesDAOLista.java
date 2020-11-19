@@ -10,6 +10,12 @@ public class PacientesDAOLista implements PacientesDAO {
 
     private List<Paciente> pacientes = new ArrayList<>();
     private static PacientesDAOLista instancia;
+    public static PacientesDAOLista getInstance(){
+        if(instancia==null){
+            instancia=new PacientesDAOLista();
+        }
+        return instancia;
+    }
 
     private PacientesDAOLista(){
         Paciente p=new Paciente();
@@ -17,20 +23,13 @@ public class PacientesDAOLista implements PacientesDAO {
         p.setRut("19655234-0");
         p.setNombre("Luis");
         p.setApellido("Rodriguez");
-        p.setFecha("15-11-2020");
+        p.setFecha("15/11/2020");
         p.setArea_Trabajo("Otros");
         p.setSintoma(true);
         p.setTemperatura(42);
         p.setTos(false);
         p.setArterial(70);
         pacientes.add(p);
-    }
-
-    public static PacientesDAOLista getInstance(){
-        if(instancia==null){
-            instancia=new PacientesDAOLista();
-        }
-        return instancia;
     }
 
     @Override
